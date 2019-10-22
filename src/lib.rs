@@ -92,18 +92,12 @@ pub mod common;
 // pub use embedded_hal as hal;
 
 // mod sensor;
-mod relay;
-mod valve;
-mod pump;
-mod autosampler;
-mod analog;
-mod lamp;
-
-// pub mod airflow;
-// pub mod pressure;
-// pub mod temperatur;
-// pub mod humidity;
-// pub mod flow;
+pub mod relay;
+pub mod valve;
+pub mod pump;
+pub mod autosampler;
+pub mod analog;
+pub mod lamp;
 pub mod sensor;
 pub mod uv;
 pub mod uhr;

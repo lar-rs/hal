@@ -1,5 +1,6 @@
-# `analyzer`
+# `common`
 
+LAR Hardware abstraction layer
 ![pipeline status](https://travis-ci.com/lar-rs/analyzer.svg?branch=master)
 [![builds.sr.ht status](https://builds.sr.ht/~asmolkov/analyzer/.build.yml.svg)](https://builds.sr.ht/~asmolkov/wqa/.build.yml?)
 
