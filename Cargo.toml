@@ -1,0 +1,24 @@
+[package]
+name = "hal"
+version = "0.0.6"
+authors = ["Sascha Smolkov <sascha.smolkov@gmail.com>"]
+edition = "2018"
+
+
+[badges]
+maintenance = { status = "experimental" }
+travis-ci = { repository = "lar-rs/hal", branch = "master"}
+
+
+[dependencies]
+embedded-hal = { version = "0.2.3", features = ["unproven"] }
+nb = "0.1.2"
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+heapless = "0.5.0"
+generic-array = "0.13.2"
+gregor = "0.3.3"
+bitflags = "1.1"
+
+
+[dev-dependencies]
+embedded-hal-mock = "0.7.0"
