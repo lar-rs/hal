@@ -6,7 +6,7 @@ pub mod furnace;
 pub mod pump;
 pub mod lamp;
 pub mod relay;
-pub mod sensor;
+pub mod ndir;
 pub mod valve;
 pub mod xysys;
 
@@ -18,7 +18,7 @@ pub use self::furnace::{Furnace};
 pub use self::pump::Pump;
 pub use self::lamp::Lamp;
 pub use self::relay::Relay;
-pub use self::sensor::Sensor;
+pub use self::ndir::Sensor;
 pub use self::valve::Valve;
 pub use self::xysys::Axis;
 

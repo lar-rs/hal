@@ -1,4 +1,4 @@
-//! A LAR Hardware Abstraction Layer (HAL) and analytic model for water quality monitoring
+//! A LAR Hardware Abstraction Layer (HAL) anasync_traitd analytic model for water quality monitoring
 //!
 //! **NOTE** Eine Kopie aus embedded-hal project .Als Beispiel. Soll Bearbeitet und durch Documentation zu
 //! wqa-analyzer ersetzt.
@@ -74,7 +74,7 @@
 //! ```
 // #![deny(missing_docs)]
 // #![deny(warnings)]
-#![no_std]
+// #![no_std]
 
 
 pub use embedded_hal as hal;
@@ -85,7 +85,8 @@ pub mod lamp;
 pub mod pump;
 pub mod valve;
 pub mod ndir;
-pub mod uv;
+// pub mod uv;
+pub mod mio;
 
 
 

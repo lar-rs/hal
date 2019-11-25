@@ -1,4 +1,4 @@
-# `common`
+# `hal`
 
 LAR Hardware abstraction layer
 ![pipeline status](https://travis-ci.com/lar-rs/analyzer.svg?branch=master)
