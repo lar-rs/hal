@@ -1,4 +1,4 @@
-# `hal`
+# :slot_machine: `hal`
 
 LAR Hardware abstraction layer
 ![pipeline status](https://travis-ci.com/lar-rs/analyzer.svg?branch=master)
@@ -52,3 +52,4 @@ Rust embedded hal [github](https://github.com/rust-embedded/embedded-hal)
 
 <!-- Badges -->
 [min-rust-badge]: https://img.shields.io/badge/rustc-1.31+-blue.svg
+[git-emoji]: https://www.webfx.com/tools/emoji-cheat-sheet
