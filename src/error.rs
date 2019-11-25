@@ -1,16 +1,19 @@
-use core;
+// use std::io;
 
-// pub type Result<T> = core::result::Result<T,Error>;
 
-// /// Errors that may occur during mocking.
-// #[derive(Debug)]
-// pub enum Error {
-//     /// An I/O-Error occurred
-//     Io(io::Error),
+/// Errors that may occur during mocking.
+#[derive(PartialEq, Clone, Debug)]
+pub enum Error {
+    /// An Lamp Error occurred
+    UvLamp,
+    Furnace,
+
+
+}
+
+// impl From<io::Error> for Error {
+    // fn from(e: io::Error) -> Self {
+        // MockError::Io(e.kind())
+    // }
 // }
-
-// impl From<io::Error> for MockError {
-//     fn from(e: io::Error) -> Self {
-//         MockError::Io(e)
-//     }
-// }
+//

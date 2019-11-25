@@ -77,31 +77,29 @@
 #![no_std]
 
 
+pub use embedded_hal as hal;
 
-// mod error;
-#[cfg(feature = "mosk")]
-pub use crate::error::MockError;
-
-#[cfg(feature = "mosk")]
-pub mod common;
-
-
-
+pub mod error;
+pub mod gpio;
+pub mod lamp;
+pub mod pump;
+pub mod valve;
+pub mod ndir;
+pub mod uv;
 
 
-// pub use embedded_hal as hal;
 
 // mod sensor;
-pub mod relay;
-pub mod valve;
-pub mod pump;
-pub mod autosampler;
-pub mod analog;
-pub mod lamp;
-pub mod sensor;
-pub mod uv;
-pub mod uhr;
-pub mod wecker;
+// pub mod relay;
+// pub mod valve;
+// pub mod pump;
+// pub mod autosampler;
+// pub mod analog;
+// pub mod lamp;
+// pub mod sensor;
+// pub mod uv;
+// pub mod uhr;
+// pub mod wecker;
 
 
 // pub use temperatur::Temperatur;

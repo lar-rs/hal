@@ -1,20 +1,33 @@
 /// Valve I/O
+///
+///
+use embedded_hal::digital::v2::OutputPin;
+// use embedded_hal::timer::CountDown;
+// use embedded_hal::timer::Periodic;
+// use nb::block;
+use super::error::Error;
+/// Beeper
+pub struct Valve<PIN>
+where
+    PIN: OutputPin,
+{
+    /// pin on/off
+    pin: PIN,
+}
 
-/// Single digital push-pull output pin
-pub trait Valve {
-    /// Error type
-    type Error;
-
-    /// Drives the pin low
-    ///
-    /// *NOTE* the actual electrical state of the pin may not actually be low, e.g. due to external
-    /// electrical sources
-    fn no(&mut self) -> nb::Result<(), Self::Error>;
-
-    /// Drives the pin high
-    ///
-    /// *NOTE* the actual electrical state of the pin may not actually be high, e.g. due to external
-    /// electrical sources
-    fn nc(&mut self) -> nb::Result<(), Self::Error>;
-
+impl<PIN> Valve<PIN>
+where
+    PIN: OutputPin,
+{
+    pub fn create(pin: PIN) -> Self {
+        Valve { pin }
+    }
+    pub fn open(&mut self) -> nb::Result<(),Error> {
+        self.pin.set_high().ok();
+        Ok(())
+    }
+    pub fn close(&mut self) -> nb::Result<(),Error>  {
+        self.pin.set_low().ok();
+        Ok(())
+    }
 }

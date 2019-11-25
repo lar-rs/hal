@@ -1,19 +1,39 @@
 /// Relay
+///
+///
+use embedded_hal::digital::v2::OutputPin;
+// use embedded_hal::timer::CountDown;
+// use embedded_hal::timer::Periodic;
+// use nb::block;
+use super::error::Error;
+/// Beeper
+pub struct Relay<PIN>
+where
+    PIN: OutputPin,
+{
+    /// pin on/off
+    pin: PIN,
+}
 
-/// Single digital push-pull output pin
-pub trait Relay {
-    /// Error type
-    type Error;
+impl<PIN> Relay<PIN>
+where
+    PIN: OutputPin,
+{
+    pub fn create(pin: PIN) -> Self {
+        Relay { pin }
+    }
+    pub fn open(&mut self) -> nb::Result<(),Error> {
+        self.pin.set_high().ok();
+        Ok(())
+    }
+    pub fn close(&mut self) -> nb::Result<(),Error>  {
+        self.pin.set_low().ok();
+        Ok(())
+    }
+}
 
-    /// Drives the on
-    ///
-    /// *NOTE* the actual electrical state of the pin may not actually be low, e.g. due to external
-    /// electrical sources
-    fn open(&mut self) -> nb::Result<(), Self::Error>;
 
-    /// Drives the off
-    ///
-    /// *NOTE* the actual electrical state of the pin may not actually be high, e.g. due to external
-    /// electrical sources
-    fn close(&mut self) -> nb::Result<(), Self::Error>;
+pub struct Relays {
+    relay1: Relay,
+    relay2: Relay,
 }

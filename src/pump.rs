@@ -1,39 +1,35 @@
-/// Monitor gear pump normally used for solution sampling.
-///
-///
+/// Lamp UV
 
-
-pub trait Pump {
-
-    type Error;
-    fn start ( &mut self)  -> nb::Result<(), Self::Error>;
-    fn stop( &mut self) -> nb::Result<(), Self::Error>;
+use embedded_hal::digital::v2::OutputPin;
+// use embedded_hal::timer::CountDown;
+// use embedded_hal::timer::Periodic;
+// use nb::block;
+use super::error::Error;
+/// Beeper
+pub struct Pump<PIN>
+where
+    PIN: OutputPin,
+{
+    /// pin
+    pin: PIN,
+    // rt:  u64,
+    // st:  u64,
 }
 
+impl<PIN> Pump<PIN>
+where
+    PIN: OutputPin,
+{
+    pub fn create(pin: PIN) -> Self {
+        Pump { pin }
+    }
 
-
-
-
-#[cfg(feature = "mosk")]
-pub mod mosk {
-    use crate::error::MockError;
-    use crate::common::Generic;
-
-
-// Analog Out mock
-//
-// #[derive(Clone, Debug, PartialEq)]
-// pub struct MoskAnalogOut{
-    // value: f32;
-// }
-
-
-// impl Analog for MoskAnalogOut {
-    // type Error = MockError;
-    // type Value = f32;
-
-    // fn set_value (&mut self, v : Value) ->Result<(), Self::Error> {
-        // self.value = v;
-        // Ok(())
-    // }
+    pub fn start(&mut self) -> nb::Result<(),Error> {
+        self.pin.set_high().ok();
+        Ok(())
+    }
+    pub fn stop(&mut self) -> nb::Result<(),Error>  {
+        self.pin.set_low().ok();
+        Ok(())
+    }
 }

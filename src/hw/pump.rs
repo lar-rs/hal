@@ -1,16 +1,13 @@
-///
-/// Analog
-///
+/// Monitor gear pump normally used for solution sampling.
 ///
 ///
 
 
-/// SPI Transaction mode
-pub trait Analog{
-    type Value;
+pub trait Pump {
+
     type Error;
-    fn set_value(&mut self,v:Self::Value)->nb::Result<(),Self::Error>;
-    fn get_value(&mut self)->nb::Result<Self::Value,Self::Error>;
+    fn start ( &mut self)  -> nb::Result<(), Self::Error>;
+    fn stop( &mut self) -> nb::Result<(), Self::Error>;
 }
 
 
@@ -19,7 +16,6 @@ pub trait Analog{
 
 #[cfg(feature = "mosk")]
 pub mod mosk {
-    use nb;
     use crate::error::MockError;
     use crate::common::Generic;
 

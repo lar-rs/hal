@@ -1,22 +1,35 @@
 /// Lamp UV
 
-/// Single digital push-pull output pin
-pub trait Lamp {
-    /// Error type
-    type Error;
 
-    /// Drives the on
-    ///
-    /// *NOTE* the actual electrical state of the pin may not actually be low, e.g. due to external
-    /// electrical sources
-    fn on(&mut self) -> nb::Result<(), Self::Error>;
-
-    /// Drives the off
-    ///
-    /// *NOTE* the actual electrical state of the pin may not actually be high, e.g. due to external
-    /// electrical sources
-    fn off(&mut self) -> nb::Result<(), Self::Error>;
+use embedded_hal::digital::v2::OutputPin;
+// use embedded_hal::timer::CountDown;
+// use embedded_hal::timer::Periodic;
+// use nb::block;
+use super::error::Error;
+/// Beeper
+pub struct Lamp<PIN>
+where
+    PIN: OutputPin,
+{
+    /// pin
+    pin: PIN,
+    // rt:  u64,
+    // st:  u64,
 }
 
-
-
+impl<PIN> Lamp<PIN>
+where
+    PIN: OutputPin,
+{
+    pub fn create(pin: PIN) -> Self {
+        Lamp { pin }
+    }
+    pub fn on(&mut self) -> nb::Result<(),Error> {
+        self.pin.set_high().ok();
+        Ok(())
+    }
+    pub fn off(&mut self) -> nb::Result<(),Error>  {
+        self.pin.set_low().ok();
+        Ok(())
+    }
+}

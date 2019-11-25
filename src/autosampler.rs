@@ -5,31 +5,15 @@
 ///
 use nb;
 
-
-
-pub trait XYSystem{
+pub trait Autosampler{
     type Error;
     type Position;
-    type Velocity;
-    fn xposition(&mut self) -> nb::Result<Self::Position,Self::Error>;
-    fn yposition(&mut self) -> nb::Result<Self::Position,Self::Error>;
-    fn zposition(&mut self) -> nb::Result<Self::Position,Self::Error>;
+    type Speed;
 
-    fn xhold(&mut self) -> nb::Result<Self::Position,Self::Error>;
-    fn yhold(&mut self) -> nb::Result<Self::Position,Self::Error>;
-    fn zhold(&mut self) -> nb::Result<Self::Position,Self::Error>;
-
-    fn x_to_sensor(&mut self) -> nb::Result<(),Self::Error>;
-    fn y_to_sensor(&mut self) -> nb::Result<(),Self::Error>;
-    fn z_to_sensor(&mut self) -> nb::Result<(),Self::Error>;
-    fn xmove(&mut self,par:Self::Velocity, pos:Self::Position) -> nb::Result<(),Self::Error>;
-    fn ymove(&mut self,par:Self::Velocity, pos:Self::Position) -> nb::Result<(),Self::Error>;
-    fn zmove(&mut self,par:Self::Velocity, pos:Self::Position) -> nb::Result<(),Self::Error>;
-
-    fn take(&mut self, par:Self::Velocity) -> nb::Result<(),Self::Error>;
-    fn push(&mut self, par:Self::Velocity) -> nb::Result<(),Self::Error>;
-    fn rinse(&mut self) -> nb::Result<(),Self::Error>;
-    fn injection(&mut self) -> nb::Result<(),Self::Error>;
+    fn hold(&mut self) -> nb::Result<Self::Position,Self::Error>;
+    fn position(&mut self, pos:Self::Position) -> nb::Result<Self::Position,Self::Error>;
+    fn take(&mut self, par:Self::Speed) -> nb::Result<(),Self::Error>;
+    fn push(&mut self, par:Self::Speed) -> nb::Result<(),Self::Error>;
 }
 
 
