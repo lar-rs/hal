@@ -7,6 +7,20 @@ use embedded_hal::digital::v2::OutputPin;
 // use nb::block;
 use super::error::Error;
 /// Beeper
+/// /// Valve I/O
+
+/// Single digital push-pull output pin
+pub trait VY {
+    /// Drives the pin low
+    ///
+    fn open(&mut self) -> nb::Result<(), Error>;
+
+    /// Drives the pin high
+    ///
+    fn close(&mut self) -> nb::Result<(), Error>;
+
+}
+
 pub struct Valve<PIN>
 where
     PIN: OutputPin,
@@ -22,11 +36,18 @@ where
     pub fn create(pin: PIN) -> Self {
         Valve { pin }
     }
-    pub fn open(&mut self) -> nb::Result<(),Error> {
+   
+}
+
+impl<PIN> VY for Valve<PIN> 
+where
+    PIN: OutputPin,
+{
+    fn open(&mut self) -> nb::Result<(),Error> {
         self.pin.set_high().ok();
         Ok(())
     }
-    pub fn close(&mut self) -> nb::Result<(),Error>  {
+    fn close(&mut self) -> nb::Result<(),Error>  {
         self.pin.set_low().ok();
         Ok(())
     }

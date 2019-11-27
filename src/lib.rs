@@ -84,6 +84,7 @@ pub mod gpio;
 pub mod lamp;
 pub mod pump;
 pub mod valve;
+pub mod sensor;
 pub mod ndir;
 // pub mod uv;
 pub mod mio;

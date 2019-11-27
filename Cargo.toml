@@ -1,8 +1,12 @@
 [package]
-name = "mio"
-version = "0.0.6"
+name = "hal"
+version = "0.0.7"
 authors = ["Sascha Smolkov <sascha.smolkov@gmail.com>"]
 edition = "2018"
+keywords = ["hal","pump","valve","ndir","airflow", "humidity", "pressure"]
+license = "Apache-2.0 OR MIT"
+readme = "README.md"
+repository = "https://github.com/lar-rs/can"
 
 
 [badges]

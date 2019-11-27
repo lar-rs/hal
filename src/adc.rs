@@ -1,7 +1,18 @@
+///
 /// Analog
 ///
 ///
 ///
+
+use nb;
+
+/// SPI Transaction mode
+pub trait Adc12{
+    type Value;
+
+    fn set_value(&mut self,v:Self::Value);
+    fn get_value(&mut self)->Self::Value;
+}
 
 /// Read write voltage
 pub trait Voltage{

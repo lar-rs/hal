@@ -5,7 +5,7 @@
 
 use serde::{Deserialize, Serialize};
 
-
+use super::sensor::Sensor;
 
 #[derive(Clone, Serialize,Debug, PartialEq)]
 pub enum Level {
@@ -53,6 +53,12 @@ impl NDir {
     }
 }
 
+impl Sensor for NDir {
+    type Error = Error;
+    fn signal(&mut self) -> nb::Result<f32,Error> {
+        self.get_fsr()
+    }
+}
 
 pub type NDir1 = NDir;
 pub type NDir2 = NDir;

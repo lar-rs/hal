@@ -1,9 +1,15 @@
-# :slot_machine: `hal`
+#  :electric_plug: `hal`
 
-LAR Hardware abstraction layer
-![pipeline status](https://travis-ci.com/lar-rs/analyzer.svg?branch=master)
-[![builds.sr.ht status](https://builds.sr.ht/~asmolkov/analyzer/.build.yml.svg)](https://builds.sr.ht/~asmolkov/wqa/.build.yml?)
+ **📦  LAR linux can support rewrited in [🦀 **Rust**](https://github.com/lar-rs/hal)**
 
+🚧 _Work In Progress_ 🚧
+
+[![travis build Status](https://travis-ci.com/lar-rs/hal.svg?branch=master)](https://travis-ci.com/lar-rs/hal)
+![open issue][issue]
+![Minimum Rust Version][min-rust-badge]
+
+LAR Hardware abstraction layer 
+![pipeline status](https://travis-ci.com/lar-rs/hal.svg?branch=master)
 ![Minimum Rust Version][min-rust-badge]
 analyzer redisign in [🦀 **Rust**](https://github.com/rust-lang)
 
@@ -12,25 +18,26 @@ analyzer redisign in [🦀 **Rust**](https://github.com/rust-lang)
 
 This is a collection of types
 
-[Docs](https://docs.rs/embedded-hal-mock/)
+[Docs](https://docs.rs/hal/)
 
 
 ## Status
 
-- [x] Pump
-- [x] Relay
-- [x] Sensor
-- [C] Valve
-- [X] Lamp
-- [X] Relay
-- [X] Autosampler
-- [X] UV
-- [X] Indicators
-- [X] Device
+- [x] ⚙️  `GearPump`
+- [x] 🔧 `Relay`
+- [x] 🔬 `Sensor`
+- [C] 🔩 `Valve`
+- [X]    `Lamp`
+- [X]    `Relay`
+- [X] ⚙️  `Autosampler`
+- [X] 🚴 `Indicators`
+- [ ] 🔋 `Batterie`
+## 🎙️ Commands
 
+### `can`
 
 ## TODO
-
+* Uv
 * Ultra
 * Nitritoc
 * Loop
@@ -53,3 +60,7 @@ Rust embedded hal [github](https://github.com/rust-embedded/embedded-hal)
 <!-- Badges -->
 [min-rust-badge]: https://img.shields.io/badge/rustc-1.31+-blue.svg
 [git-emoji]: https://www.webfx.com/tools/emoji-cheat-sheet
+
+[irc]:          https://webirc.hackint.org/#irc://irc.hackint.org/#lar
+[issue]: https://img.shields.io/github/issues/lar-rs/lscan?style=flat-square
+[min-rust-badge]: https://img.shields.io/badge/rustc-1.38+-blue.svg

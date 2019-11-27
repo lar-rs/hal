@@ -1,11 +1,16 @@
 /// Lamp UV
 
 
-use embedded_hal::digital::v2::OutputPin;
+use embedded_hal::digital::v2::{OutputPin,ToggleableOutputPin};
 // use embedded_hal::timer::CountDown;
 // use embedded_hal::timer::Periodic;
 // use nb::block;
+/// Lamp UV
+use nb;
+
+
 use super::error::Error;
+
 /// Beeper
 pub struct Lamp<PIN>
 where
@@ -19,7 +24,7 @@ where
 
 impl<PIN> Lamp<PIN>
 where
-    PIN: OutputPin,
+    PIN: OutputPin +ToggleableOutputPin,
 {
     pub fn create(pin: PIN) -> Self {
         Lamp { pin }
@@ -33,3 +38,4 @@ where
         Ok(())
     }
 }
+
