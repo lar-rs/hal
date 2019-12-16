@@ -7,23 +7,16 @@ use embedded_hal::digital::v2::OutputPin;
 
 use super::error::Error;
 
-
-
 pub trait Pump {
     fn start( &mut self) -> nb::Result<(), Error>;
     fn stop( &mut self)  -> nb::Result<(), Error>;
 }
-
-
-/// Beeper
+/// GearPump
 pub struct GearPump<PIN>
 where
     PIN: OutputPin,
 {
-    /// pin
     pin: PIN,
-    // rt:  u64,
-    // st:  u64,
 }
 
 impl<PIN> GearPump<PIN>
@@ -33,11 +26,7 @@ where
     pub fn create(pin: PIN) -> Self {
         GearPump { pin }
     }
-
-
 }
-
-
 impl<PIN> Pump for GearPump<PIN> 
 where
     PIN: OutputPin,
@@ -50,5 +39,4 @@ where
         self.pin.set_low().ok();
         Ok(())
     }
-
 }

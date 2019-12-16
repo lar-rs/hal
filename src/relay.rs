@@ -11,7 +11,6 @@ pub struct Relay<PIN>
 where
     PIN: OutputPin,
 {
-    /// pin on/off
     pin: PIN,
 }
 
