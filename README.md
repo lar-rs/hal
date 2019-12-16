@@ -8,7 +8,7 @@
 ![open issue][issue]
 ![Minimum Rust Version][min-rust-badge]
 
-LAR Hardware abstraction layer 
+LAR Hardware abstraction layer
 ![pipeline status](https://travis-ci.com/lar-rs/hal.svg?branch=master)
 ![Minimum Rust Version][min-rust-badge]
 analyzer redisign in [🦀 **Rust**](https://github.com/rust-lang)
@@ -27,11 +27,12 @@ This is a collection of types
 - [x] 🔧 `Relay`
 - [x] 🔬 `Sensor`
 - [C] 🔩 `Valve`
-- [X]    `Lamp`
-- [X]    `Relay`
+- [X] 🔋 `Lamp`
+- [X] 🔩 `Relay`
 - [X] ⚙️  `Autosampler`
 - [X] 🚴 `Indicators`
 - [ ] 🔋 `Batterie`
+
 ## 🎙️ Commands
 
 ### `can`

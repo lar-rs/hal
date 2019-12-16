@@ -273,7 +273,7 @@ use lazy_static::lazy_static;
 
 fn extract_fsr(input: &str) -> Option<f32> {
     lazy_static! {
-                                            // N 0.0384                0.0000        0.0000      0.00        0.0000       25764             997.2           0
+        // N 0.0384                0.0000        0.0000      0.00        0.0000       25764             997.2           0
         static ref RE: Regex = Regex::new(r"N (?P<fsr>\d{1}.\d{4}) \d{1}.\d{4} \d{1}.\d{4} \d{1}.\d{2} \d{1}.\d{4} (?P<dig>\d{5}) (?P<ppm>\d{1,5}.\d{1}) \d{1}").unwrap();
     }
     RE.captures(input).and_then(|cap| {
@@ -514,7 +514,7 @@ where
 
         // Max duration according to datasheet (Table 10)
         self.delay.delay_ms(12);
-        
+
         // Read result
         let mut buf = [0; 6];
         let co2eq_ppm = 0 as u16;//  (u16::from(buf[0]) << 8) | u16::from(buf[1]);
@@ -648,7 +648,7 @@ mod tests {
         Mock as SerialMock,Transaction as SerialTransaction,
     };
     // use self::hal::delay::MockNoop as DelayMock;
-    
+
     /// Test the crc8 function against the test value provided in the
     /// datasheet (section 6.6).
     #[test]

@@ -1,7 +1,7 @@
 /// Lamp UV
 
 
-use embedded_hal::digital::v2::{OutputPin,ToggleableOutputPin};
+use embedded_hal::digital::v2::{OutputPin};
 // use embedded_hal::timer::CountDown;
 // use embedded_hal::timer::Periodic;
 // use nb::block;
@@ -24,7 +24,7 @@ where
 
 impl<PIN> Lamp<PIN>
 where
-    PIN: OutputPin +ToggleableOutputPin,
+    PIN: OutputPin,
 {
     pub fn create(pin: PIN) -> Self {
         Lamp { pin }
